@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="550dp">
+
+    <ImageView
+        android:id="@+id/image_popUp_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="350dp"
+        android:scaleType="centerCrop"
+
+        android:src="@drawable/dice_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/small_description"
+        android:layout_width="246dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="40dp"
+        android:text="Small description"
+        app:layout_constraintBottom_toTopOf="@+id/long_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/long_description"
+        android:layout_width="224dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="15dp"
+        android:text="Long description"
+        app:layout_constraintBottom_toTopOf="@+id/created_at"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/created_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="249dp"
+        android:layout_marginBottom="26dp"
+        android:text="Created_at"
+        app:layout_constraintBottom_toTopOf="@+id/updated_at"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/updated_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="247dp"
+        android:layout_marginBottom="64dp"
+        android:text="updated_at"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

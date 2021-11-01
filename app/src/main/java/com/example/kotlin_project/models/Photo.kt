@@ -7,6 +7,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Photo(@SerializedName("id")val id : String,
                  @SerializedName("width") val width : String,
+                 @SerializedName("created_at") val created_at : String,
+                 @SerializedName("updated_at") val updated_at : String,
                  @SerializedName("height")  val height: String,
                  @SerializedName("color")  val color: String,
                  @SerializedName("alt_description")  val description: String,

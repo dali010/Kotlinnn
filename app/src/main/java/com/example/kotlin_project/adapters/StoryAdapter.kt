@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.kotlin_project.GlideApp
 import com.example.kotlin_project.R
 import com.example.kotlin_project.StoryPopUp
 import com.example.kotlin_project.models.Photo
@@ -31,7 +32,7 @@ class StoryAdapter (private val photos: MutableList<Photo>, val  context: Contex
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        Glide.with(context)
+        GlideApp.with(context)
             .load(photos[position].url.regular)
             .placeholder(ColorDrawable(Color.parseColor(photos[position].color)))
             .into(holder.story)
@@ -40,7 +41,7 @@ class StoryAdapter (private val photos: MutableList<Photo>, val  context: Contex
         val currentPhoto = photos[position]
 
         holder.itemView.setOnClickListener(){
-            StoryPopUp(this).show()
+            StoryPopUp(this,photos[position]).show()
         }
 
     }

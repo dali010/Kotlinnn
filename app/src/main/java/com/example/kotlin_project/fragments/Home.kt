@@ -25,7 +25,7 @@ import kotlin.math.log
 
 class Home : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var binding1 : ActivityMainBinding
+//    private lateinit var binding1 : ActivityMainBinding
     private lateinit var adapter : ImageItemAdapter
     private lateinit var adapter1 : ImageItemAdapter
     private var page : Int = 1
@@ -40,19 +40,19 @@ class Home : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home,container,false)
-        val view1 = inflater.inflate(R.layout.activity_main,container,false)
+//        val view1 = inflater.inflate(R.layout.activity_main,container,false)
         binding = FragmentHomeBinding.bind(view)
-        binding1 = ActivityMainBinding.bind(view1)
+//        binding1 = ActivityMainBinding.bind(view1)
+
         initRecyclerView()
         getImages()
+
         return view
     }
 
 
 
-
     private fun getImages() {
-
         page = 1
         val getPost = RetrofitInstance.api.getRecentPhotos(page,30,sort)
         getPost.enqueue(object : Callback<MutableList<Photo>> {
@@ -65,7 +65,7 @@ class Home : Fragment() {
                     photos.clear()
 
                     response.body()?.let { photos.addAll(it)}
-
+                    adapter.notifyDataSetChanged()
                 }
                 else
                     Log.d("response",response.body().toString())
@@ -80,6 +80,7 @@ class Home : Fragment() {
     }
 
     private fun initRecyclerView() {
+
         binding.homeRecyclerView.layoutManager = GridLayoutManager(requireContext(),2)
         adapter = ImageItemAdapter(photos,requireContext())
         binding.homeRecyclerView.adapter = adapter

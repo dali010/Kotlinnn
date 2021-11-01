@@ -13,16 +13,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.kotlin_project.R
+import com.bumptech.glide.Glide.with
+import com.example.kotlin_project.*
 import com.example.kotlin_project.models.Photo
 import kotlin.math.log
 
-class ImageItemAdapter(private val photos: MutableList<Photo>,private val  context: Context) :
+class ImageItemAdapter(private val photos: MutableList<Photo>, val  context: Context) :
     RecyclerView.Adapter<ImageItemAdapter.ViewHolder>() {
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
             val photo : ImageView = itemView.findViewById(R.id.photo)
             val userName : TextView = itemView.findViewById(R.id.userName)
+            val createdAt: TextView = itemView.findViewById(R.id.createdAt)
+
     }
 
 
@@ -32,12 +35,17 @@ class ImageItemAdapter(private val photos: MutableList<Photo>,private val  conte
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Glide.with(context)
+        GlideApp.with(context)
             .load(photos[position].url.regular)
             .placeholder(ColorDrawable(Color.parseColor(photos[position].color)))
             .into(holder.photo)
 
         holder.userName.text = photos[position].user.username
+        holder.createdAt.text = photos[position].created_at.substring(0,10)
+
+        holder.itemView.setOnClickListener(){
+            unsplashPopUp(this,photos[position]).show()
+        }
        // Log.d("wiiiw",holder.textt.text.toString())
 
 

@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id("org.jetbrains.kotlin.kapt")
 }
 
 def localProperties = new Properties()
@@ -81,8 +82,8 @@ dependencies {
     //viewPager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     //Glide Dependency
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
     //refresh layout
     implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
     //androidxPreference
